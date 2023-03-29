@@ -4,6 +4,7 @@ import { ChatRequest } from "./typing";
 export async function POST(req: Request) {
   try {
     let apiKey = process.env.OPENAI_API_KEY;
+    console.log(1111,process.env.OPENAI_API_KEY, )
 
     const userApiKey = req.headers.get("token");
     if (userApiKey) {

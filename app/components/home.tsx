@@ -436,7 +436,7 @@ export function Chat(props: { showSideBar?: () => void }) {
             className={styles["chat-input"]}
             placeholder={Locale.Chat.Input(submitKey)}
             rows={4}
-            onInput={(e) => onInput(e.currentTarget.value)}
+            // onInput={(e) => onInput(e.currentTarget.value)}
             value={userInput}
             onKeyDown={(e) => onInputKeyDown(e as any)}
             onFocus={() => setAutoScroll(true)}
