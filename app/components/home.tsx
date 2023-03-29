@@ -206,6 +206,7 @@ export function Chat(props: { showSideBar?: () => void }) {
   const SEARCH_TEXT_LIMIT = 30;
   const onInput = (text: string) => {
     setUserInput(text);
+    return 
     const n = text.trim().length;
     if (n === 0 || n > SEARCH_TEXT_LIMIT) {
       setPromptHints([]);
@@ -436,7 +437,7 @@ export function Chat(props: { showSideBar?: () => void }) {
             className={styles["chat-input"]}
             placeholder={Locale.Chat.Input(submitKey)}
             rows={4}
-            // onInput={(e) => onInput(e.currentTarget.value)}
+            onInput={(e) => onInput(e.currentTarget.value)}
             value={userInput}
             onKeyDown={(e) => onInputKeyDown(e as any)}
             onFocus={() => setAutoScroll(true)}

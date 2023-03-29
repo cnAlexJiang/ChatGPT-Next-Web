@@ -12,6 +12,7 @@ async function createStream(req: NextRequest) {
     apiKey = userApiKey;
     console.log("[Stream] using user api key");
   }
+      console.log('createStream', apiKey)
 
   const res = await fetch("https://api.openai.com/v1/chat/completions", {
     headers: {
