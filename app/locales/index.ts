@@ -24,6 +24,7 @@ function setItem(key: string, value: string) {
 }
 
 function getLanguage() {
+  return "cn";
   try {
     return navigator.language.toLowerCase();
   } catch {
