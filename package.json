@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev --port 3007",
     "build": "next build",
-    "start": "next start --port 3007",
+    "start": "next start --port 3006",
     "lint": "next lint",
     "fetch": "node ./scripts/fetch-prompts.mjs",
     "predev": "ts-node --project ./tsconfig.node.json ./scripts/genAntdCss.tsx",
