@@ -146,10 +146,11 @@ export default function LoginUI(props: LoginProps) {
     <div className={styles["container"]}>
       <div className={styles["card"]}>
         <img
+          className={styles["card-img"]}
           src="https://studio.orang.cloud/332fba35f16604391aa31e6ff9b6bd13.png"
           alt=""
         />
-        <div className={styles["form"]}>
+        <div className={styles["card-form"]}>
           <div className={styles["title"]}>账号登录</div>
           <div className={styles["center"]}>
             <Tabs
