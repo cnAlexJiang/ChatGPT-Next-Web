@@ -9,7 +9,7 @@ const makeRequestParam = (
   options?: {
     filterBot?: boolean;
     stream?: boolean;
-  }
+  },
 ): ChatRequest => {
   let sendMessages = messages.map((v) => ({
     role: v.role,
@@ -65,7 +65,7 @@ export async function requestChatStream(
     onMessage: (message: string, done: boolean) => void;
     onError: (error: Error) => void;
     onController?: (controller: AbortController) => void;
-  }
+  },
 ) {
   const req = makeRequestParam(messages, {
     stream: true,
@@ -151,6 +151,36 @@ export async function requestWithPrompt(messages: Message[], prompt: string) {
 
   return res.choices.at(0)?.message?.content ?? "";
 }
+// get captcha
+export async function requestCaptcha(phone: string) {
+  const req = {
+    phone,
+  };
+  const res = await fetch("/api/sendCaptcha", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      ...getHeaders(),
+    },
+    body: JSON.stringify(req),
+  });
+  return res.json();
+}
+// 登录
+export async function login(info: any) {
+  const req = {
+    ...info,
+  };
+  const res = await fetch("/api/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      ...getHeaders(),
+    },
+    body: JSON.stringify(req),
+  });
+  return res.json();
+}
 
 // To store message streaming controller
 export const ControllerPool = {
@@ -159,7 +189,7 @@ export const ControllerPool = {
   addController(
     sessionIndex: number,
     messageIndex: number,
-    controller: AbortController
+    controller: AbortController,
   ) {
     const key = this.key(sessionIndex, messageIndex);
     this.controllers[key] = controller;

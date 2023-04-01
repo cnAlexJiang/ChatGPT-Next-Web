@@ -4,8 +4,6 @@ import { ChatRequest } from "./typing";
 export async function POST(req: Request) {
   try {
     let apiKey = process.env.OPENAI_API_KEY;
-    console.log(1111,process.env.OPENAI_API_KEY, )
-
     const userApiKey = req.headers.get("token");
     if (userApiKey) {
       apiKey = userApiKey;
@@ -14,7 +12,7 @@ export async function POST(req: Request) {
     const openai = new OpenAIApi(
       new Configuration({
         apiKey,
-      })
+      }),
     );
 
     const requestBody = (await req.json()) as ChatRequest;
