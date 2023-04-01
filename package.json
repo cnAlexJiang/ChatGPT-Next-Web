@@ -8,15 +8,19 @@
     "build": "next build",
     "start": "next start --port 3007",
     "lint": "next lint",
-    "fetch": "node ./scripts/fetch-prompts.mjs"
+    "fetch": "node ./scripts/fetch-prompts.mjs",
+    "predev": "ts-node --project ./tsconfig.node.json ./scripts/genAntdCss.tsx",
+    "prebuild": "ts-node --project ./tsconfig.node.json ./scripts/genAntdCss.tsx"
   },
   "dependencies": {
+    "@ant-design/static-style-extract": "^1.0.1",
     "@svgr/webpack": "^6.5.1",
     "@types/node": "^18.14.6",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@types/react-katex": "^3.0.0",
     "@types/spark-md5": "^3.0.2",
+    "antd": "^5.1.0",
     "cross-env": "^7.0.3",
     "emoji-picker-react": "^4.4.7",
     "eslint": "^8.36.0",
@@ -44,5 +48,7 @@
     "zustand": "^4.3.6"
   },
   "devDependencies": {
+    "ts-node": "^10.9.1",
+    "tslib": "^2.5.0"
   }
 }
